@@ -1,0 +1,16 @@
+<p id='notice'><%= notice %></p>
+
+<h1>Catlalog Listings</h1>
+
+<% @products.each do |product| %>
+  <div class='entry'>
+    <%= image_tag(product.image_url) %>
+    <h3><%= product.title %></h3>
+    <%= sanitize(product.description) %>
+    <div class='price_line'>
+      <spanclass='price'>
+        <%= number_to_currency(product.price) %>
+      </span>
+    </div>
+  </div>
+<% end %>
