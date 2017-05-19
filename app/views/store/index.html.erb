@@ -1,6 +1,9 @@
 <p id='notice'><%= notice %></p>
-
+<% if @count > 5 %>
+  <h5>You have been here <%= pluralize(@count, 'time') %></h5>
+<% end %>
 <h1>Catlalog Listings</h1>
+
 <% cache ['store', Product.latest] do %>
   <% @products.each do |product| %>
     <% cache ['entry', product] do %>
