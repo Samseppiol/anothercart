@@ -39,7 +39,7 @@ def create
     else
       format.html { render :new }
       format.json { render json: @line_item.errors,
-      status: :unprocessable_entity }
+      status: :unprocessable_entity}
     end
   end
 end
