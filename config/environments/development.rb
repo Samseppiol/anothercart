@@ -26,6 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  #Use smtp for mail
+  config.action_mailer.delivery_method = :smtp
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
