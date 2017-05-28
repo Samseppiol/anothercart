@@ -39,7 +39,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
       assert_select 'h1', 'Catlalog Listings'
       cart = Cart.find(session[:cart_id])
       assert_equal 0, cart.line_items.size 
-    end 
+    
 
     orders = Order.all
     assert_equal 1, orders.size   
@@ -52,11 +52,12 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
 
     assert_equal 1, order.line_items.size 
     line_item = order.line_items[0]
-   # assert_equal ruby_book, line_items.product
+    assert_equal ruby_book, line_item.product
 
-    # mail = ActionMailer::Base.deliveries.last
-    # assert_equal ["cr7thebest@live.com"], mail.to
-    # assert_equal 'Sam Ruby <depot@example.com>', mail[:from].value
-    # assert_equal 'Pragmatic Store Order Confirmation', mail.subject
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal ["cr7thebest@live.com"], mail.to
+    assert_equal 'Sam Ruby <depot@example.com>', mail[:from].value
+    assert_equal 'Pragmatic Store Order Confirmation', mail.subject
+    end 
   end 
 end
